@@ -6,6 +6,15 @@ component#navbar{
         nav{
             padding-top: 5vh;
             text-align: center;
+            @media (width="480px") {
+                component#navbar div{
+                    width: 100%; height: clamp(80px,88px,100px);
+                    nav{
+                        padding-top: clamp(5px, 15px, 20px);
+                        display: flex;
+                    }
+                }
+            }
             a{
                 display: block;
                 margin: 2px auto 20px;
