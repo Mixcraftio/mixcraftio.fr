@@ -1,0 +1,25 @@
+<link rel="stylesheet/less" type="text/css" href="/components/navbar.less"/>
+<script defer>
+    var url = window.location.href
+    var match = /https:\/\/mixcraftio.sytes.net\/?(.*)\//
+    var matches = url.match(match)
+    setTimeout(() => {
+        document.querySelector("[href='/"+matches[1]+"']").classList.add("active")
+    }, 100);
+</script>
+<div>
+    <nav>
+        <a href="/" class="">
+            <span class="material-icons">view_in_ar</span>
+            <span class="navbar-text">Home</span>
+        </a>
+        <a href="/downloads" class="">
+            <span class="material-icons">download</span>
+            <span class="navbar-text">Downloads</span>
+        </a>
+        <a href="https://youtu.be/dQw4w9WgXcQ" class="">
+            <span class="material-icons">visibility_off</span>
+            <span class="navbar-text">DO NOT CLICK</span>
+        </a>
+    </nav>
+</div>
