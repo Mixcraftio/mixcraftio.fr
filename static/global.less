@@ -6,8 +6,13 @@
     font-family: "Google";
     src: url("/static/fonts/Google.ttf");
 }
+@keyframes fadeIn{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 html{
     background-color: var(--md-sys-color-background);
+    animation: fadeIn 0.1s;
 }
 *{
     margin: 0;
