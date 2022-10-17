@@ -11,8 +11,9 @@ function replaceComponents() {
         .then(res=>res.text())
         .then(html=>component.insertAdjacentHTML('afterbegin',html))
     })
-    if (fetch('/components/'+component.id+'.js')) {
-        .then(res=>res.text())
+    var js = fetch('/components/'+component.id+'.js')
+    if (js) {
+        js.then(res=>res.text())
         .then(js=>eval(js))
     }
 }
