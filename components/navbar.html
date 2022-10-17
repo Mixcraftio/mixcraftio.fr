@@ -3,6 +3,7 @@
     var urlpath = window.location.pathname
     var activetabset = setInterval(() => {
         var activetab = document.querySelector("[href='/"+urlpath.split("/")[1]+"']")
+        console.log("tets")
         if (activetab) {
             console.log("tets")
             activetab.classList.add("active")
