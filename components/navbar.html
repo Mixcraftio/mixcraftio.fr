@@ -1,10 +1,8 @@
 <link rel="stylesheet/less" type="text/css" href="/components/navbar.less"/>
 <script defer>
-    var url = window.location.href
-    var match = /https:\/\/mixcraftio.sytes.net\/?(.*)\//
-    var matches = url.match(match)
+    var urlpath = window.location.pathname
     setTimeout(() => {
-        document.querySelector("[href='/"+matches[1]+"']").classList.add("active")
+        document.querySelector("[href='/"+urlpath.split("/")[1]+"']").classList.add("active")
     }, 100);
 </script>
 <div>
