@@ -10,12 +10,12 @@ function replaceComponents() {
         fetch('/components/'+component.id+'.html')
         .then(res=>res.text())
         .then(html=>component.insertAdjacentHTML('afterbegin',html))
+        var js = fetch('/components/'+component.id+'.js')
+        if (js) {
+            js.then(res=>res.text())
+            .then(js=>eval(js))
+        }
     })
-    var js = fetch('/components/'+component.id+'.js')
-    if (js) {
-        js.then(res=>res.text())
-        .then(js=>eval(js))
-    }
 }
 
 function includeLESS() {
