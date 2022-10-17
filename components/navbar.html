@@ -1,8 +1,12 @@
 <link rel="stylesheet/less" type="text/css" href="/components/navbar.less"/>
 <script defer>
     var urlpath = window.location.pathname
-    setInterval(() => {
-        document.querySelector("[href='/"+urlpath.split("/")[1]+"']").classList.add("active")
+    var activetabset = setInterval(() => {
+        var activetab = document.querySelector("[href='/"+urlpath.split("/")[1]+"']")
+        if (!activetab) {
+            activetab.classList.add("active")
+            clearInterval(activetabset)
+        }
     }, 100);
 </script>
 <div>
