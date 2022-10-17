@@ -1,7 +1,7 @@
 <link rel="stylesheet/less" type="text/css" href="/components/navbar.less"/>
 <script defer>
     var urlpath = window.location.pathname
-    setTimeout(() => {
+    setInterval(() => {
         document.querySelector("[href='/"+urlpath.split("/")[1]+"']").classList.add("active")
     }, 100);
 </script>
