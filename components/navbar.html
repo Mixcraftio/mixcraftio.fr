@@ -4,10 +4,9 @@
     var activetabset = setInterval(() => {
         var activetab = document.querySelector("[href='/"+urlpath.split("/")[1]+"']")
         if (activetab) {
-            setTimeout(() => {
-                activetab.classList.add("active")
-                clearInterval(activetabset)
-            }, 100);
+            console.log("tets")
+            activetab.classList.add("active")
+            clearInterval(activetabset)
         }
     }, 100);
 </script>
