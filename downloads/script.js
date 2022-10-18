@@ -14,21 +14,35 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
         Object.entries(elements).forEach(([element, data]) => {
             const elementDiv = document.createElement("div")
+            const elementLabel = document.createElement("label")
+            const elementInput = document.createElement("input")
+
+            const elementInfoDiv = document.createElement("div")
             const elementLink = document.createElement("a")
             const elementDesc = document.createElement("p")
 
-            elementLink.innerText = data['name']
+            const name = data['name']
+
+            elementInput.type = "checkbox"
+            elementInput.id = name
+            elementLabel.innerText = name
+            elementLabel.htmlFor = name
+
             elementLink.href = data['href']
+            elementLink.innerText = "Download"
             elementDesc.innerText = data['desc']
 
-            elementDiv.appendChild(elementLink)
-            elementDiv.appendChild(elementDesc)
+            elementDiv.appendChild(elementInput)
+            elementDiv.appendChild(elementLabel)
+            elementInfoDiv.appendChild(elementLink)
+            elementInfoDiv.appendChild(elementDesc)
+            elementDiv.appendChild(elementInfoDiv)
+            
             elementDiv.classList.add('entry')
             categorySection.appendChild(elementDiv)
         });
 
         categorySection.classList.add('category')
-        categorySection.classList.add('primary-container')
         wrapper.appendChild(categorySection)
     });
     body.appendChild(wrapper)

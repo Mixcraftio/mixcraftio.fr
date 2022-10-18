@@ -4,8 +4,15 @@
     margin: 20px 10px 0 10px;
     font-size: 2em;
     border-radius: 10px;
+    background-color: var(--md-sys-color-primary-container);
 }
 .entry{
     padding-left: 20px;
+    label{
+        display: none;
+        &:checked + div{
+            visibility: hidden;
+        }
+    }
 }
 }
