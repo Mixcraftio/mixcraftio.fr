@@ -21,13 +21,13 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
             elementDiv.appendChild(elementLink)
             elementDiv.appendChild(elementDesc)
-            categorySection.classList.add('entry')
+            elementDiv.classList.add('entry')
             categorySection.appendChild(elementDiv)
         });
 
         categorySection.classList.add('category')
-        categorySection.classList.add('.primary-container')
-        categorySection.classList.add('.primary-container-text')
+        categorySection.classList.add('primary-container')
+        categorySection.classList.add('primary-container-text')
         body.appendChild(categorySection)
     });
 })
