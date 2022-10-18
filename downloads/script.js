@@ -13,6 +13,8 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
         categoryInput.id = category
         categoryLabel.innerText = category
         categoryLabel.htmlFor = category
+        categorySection.appendChild(categoryInput)
+        categorySection.appendChild(categoryLabel)
 
         Object.entries(elements).forEach(([element, data]) => {
             const elementDiv = document.createElement("div")
