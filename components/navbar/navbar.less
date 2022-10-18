@@ -5,6 +5,10 @@ component#navbar div{
     nav{
         padding-top: clamp(5px, 15px, 20px);
         display: flex;
+        justify-content: space-evenly;
+        a{
+            margin: auto;
+        }
     }
 }
 body > *:not(component#navbar){
@@ -22,6 +26,8 @@ component#navbar{
             padding-top: 5vh;
             text-align: center;
             a{
+                width: 80px;
+                line-break: loose;
                 display: block;
                 margin: 2px auto 20px;
                 .material-icons{
