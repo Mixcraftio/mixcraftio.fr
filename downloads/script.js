@@ -4,7 +4,9 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
     Object.entries(downloadList).forEach(([category, elements]) => {
         const categorySection = document.createElement("section")
+
         const categoryLink = document.createElement("a")
+        categoryLink.innerText = category
         categoryLink.href = "#" + category
         categorySection.appendChild(categoryLink)
 
@@ -13,15 +15,19 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             const elementLink = document.createElement("a")
             const elementDesc = document.createElement("p")
 
-            elementDiv.innerText = data['name']
-            elementDesc.innerText = data['desc']
+            elementLink.innerText = data['name']
             elementLink.href = data['href']
+            elementDesc.innerText = data['desc']
 
             elementDiv.appendChild(elementLink)
             elementDiv.appendChild(elementDesc)
+            categorySection.classList.add('entry')
             categorySection.appendChild(elementDiv)
         });
 
+        categorySection.classList.add('category')
+        categorySection.classList.add('.primary-container')
+        categorySection.classList.add('.primary-container-text')
         body.appendChild(categorySection)
     });
 })
