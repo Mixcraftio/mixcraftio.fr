@@ -7,10 +7,10 @@ function replaceImports() {
 
 function replaceComponents() {
     document.querySelectorAll('component').forEach(component => {
-        fetch('/components/'+component.id + '/' + component.id+'.html')
+        fetch('/components/'+ component.id + '/' + component.id+'.html')
         .then(res=>res.text())
         .then(html=>component.insertAdjacentHTML('afterbegin',html))
-        var js = fetch('/components/'+component.id + '/' + component.id+'.js')
+        var js = fetch('/components/'+ component.id + '/' + component.id+'.js')
         if (js) {
             js.then(res=>res.text())
             .then(js=>eval(js))
