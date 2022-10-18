@@ -33,6 +33,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             elementLabel.htmlFor = name
 
             elementLink.href = data['href']
+            elementLink.target = "_blank"
             elementLink.innerText = "Download"
             elementDesc.innerText = data['desc']
 
