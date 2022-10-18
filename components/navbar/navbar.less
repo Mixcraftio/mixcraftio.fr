@@ -1,17 +1,18 @@
-@media screen and (max-width: 480px) {
-    component#navbar div{
-        width: 100% !important; height: clamp(80px,88px,100px) !important;
-        bottom: 0;
-        nav{
-            padding-top: clamp(5px, 15px, 20px) !important;
-            display: flex;
-        }
-    }
-    body > *:not(component#navbar){
-        padding-left: 0 !important;
+
+component#navbar div{
+    width: 100% ; height: clamp(80px,88px,100px);
+    bottom: 0;
+    nav{
+        padding-top: clamp(5px, 15px, 20px);
+        display: flex;
     }
 }
+body > *:not(component#navbar){
+    padding-left: 0;
+}
 
+
+@media screen and (min-width: 480px) {
 component#navbar{
     div{
         position: fixed;
@@ -68,4 +69,5 @@ component#navbar{
 }
 body > *:not(component#navbar){
     padding-left: clamp(80px,88px,100px);
+}
 }

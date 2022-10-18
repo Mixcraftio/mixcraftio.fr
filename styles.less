@@ -1,17 +1,18 @@
-@media screen and (max-width: 480px) {
-    section#main{
-        card-set{
-            card{
-                &.main{
-                    grid-column: span 4;
-                    h1{font-size: 4em;}
-                    h3{font-size: 1em;}
-                }
+
+section#main{
+    card-set{
+        card{
+            &.main{
+                grid-column: span 4;
+                h1{font-size: 4em;}
+                h3{font-size: 1em;}
             }
         }
     }
 }
 
+
+@media screen and (min-width: 480px) {
 section#main{
     card-set{
         padding: 2%;
@@ -69,4 +70,5 @@ section#main{
             }
         }
     }
+}
 }
