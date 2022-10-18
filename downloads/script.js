@@ -1,6 +1,8 @@
 fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
     const body = document.querySelector('body')
+    const wrapper = document.createElement("div")
+    wrapper.classList.add('wrapper')
 
     Object.entries(downloadList).forEach(([category, elements]) => {
         const categorySection = document.createElement("section")
@@ -28,6 +30,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
         categorySection.classList.add('category')
         categorySection.classList.add('primary-container')
         categorySection.classList.add('primary-container-text')
-        body.appendChild(categorySection)
+        wrapper.appendChild(categorySection)
     });
+    body.appendChild(wrapper)
 })
