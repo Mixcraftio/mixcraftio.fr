@@ -29,7 +29,6 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
         categorySection.classList.add('category')
         categorySection.classList.add('primary-container')
-        categorySection.classList.add('primary-container-text')
         wrapper.appendChild(categorySection)
     });
     body.appendChild(wrapper)
