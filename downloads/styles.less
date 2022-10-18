@@ -8,14 +8,14 @@
 }
 .entry{
     padding-left: 20px;
-    input{
+}
+input{
+    display: none;
+    & ~ div{
         display: none;
-        & ~ div{
-            display: none;
-        }
-        &:checked ~ div{
-            display: block;
-        }
+    }
+    &:checked ~ div{
+        display: block;
     }
 }
 }
