@@ -17,7 +17,9 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             elementDesc.innerText = data['desc']
             categoryLink.href = "#" + data['href']
 
-            categorySection.appendChild(categoryLink)
+            elementDiv.appendChild(elementLink)
+            elementDiv.appendChild(elementDesc)
+            categorySection.appendChild(elementDiv)
         });
 
         body.appendChild(categorySection)
