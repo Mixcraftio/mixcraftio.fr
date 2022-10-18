@@ -39,8 +39,8 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
             elementDiv.appendChild(elementInput)
             elementDiv.appendChild(elementLabel)
-            elementInfoDiv.appendChild(elementLink)
             elementInfoDiv.appendChild(elementDesc)
+            elementInfoDiv.appendChild(elementLink)
             elementDiv.appendChild(elementInfoDiv)
 
             elementDiv.classList.add('entry')
