@@ -31,9 +31,11 @@ input{
     display: none;
     & ~ div{
         height: 0;
+        display: none;
     }
     &:checked ~ div{
         height: fit-content;
+        display: block;
     }
 }
 }
