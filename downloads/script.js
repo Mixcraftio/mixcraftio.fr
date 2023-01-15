@@ -9,12 +9,15 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
         const categoryInput = document.createElement("input")
         const categoryLabel = document.createElement("label")
+        const categoryWrapper = document.createElement("div")
+        categoryWrapper.classList.add("elwrapper")
         categoryInput.type = "checkbox"
         categoryInput.id = category
         categoryLabel.innerText = category
         categoryLabel.htmlFor = category
         categorySection.appendChild(categoryInput)
         categorySection.appendChild(categoryLabel)
+        categorySection.appendChild(categoryWrapper)
 
         Object.entries(elements).forEach(([element, data]) => {
             const elementDiv = document.createElement("div")
@@ -44,7 +47,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             elementDiv.appendChild(elementInfoDiv)
 
             elementDiv.classList.add('entry')
-            categorySection.appendChild(elementDiv)
+            categoryWrapper.appendChild(elementDiv)
         });
 
         categorySection.classList.add('category')
