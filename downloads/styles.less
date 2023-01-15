@@ -38,11 +38,11 @@ input{
     display: none;
     & ~ div{
         height: 0px;
-        display: none;
+        visibility: hidden;
     }
     &:checked ~ div{
         height: fit-content;
-        display: block;
+        visibility: shown;
     }
 }
 }
