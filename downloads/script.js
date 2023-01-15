@@ -35,7 +35,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             elementInput.id = name
             elementImg.src = data['img']
             elementLabel.innerText = name
-            elementLabel.appendChild(elementImg)
+            elementLabel.insertBefore(elementImg, elementLabel.firstChild)
             elementLabel.htmlFor = name
 
             elementLink.href = data['href']
