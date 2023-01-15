@@ -34,6 +34,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             elementInput.type = "checkbox"
             elementInput.id = name
             elementImg.src = data['img']
+            elementLabel.appendChild(elementImg)
             elementLabel.innerText = name
             elementLabel.htmlFor = name
 
@@ -43,7 +44,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             // elementDesc.innerText = data['desc']
 
             elementDiv.appendChild(elementInput)
-            elementDiv.appendChild(elementImg)
+            // elementDiv.appendChild(elementImg)
             elementDiv.appendChild(elementLabel)
             // elementInfoDiv.appendChild(elementDesc)
             elementInfoDiv.appendChild(elementLink)
