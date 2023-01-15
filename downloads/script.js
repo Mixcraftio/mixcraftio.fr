@@ -25,7 +25,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             const elementImg = document.createElement("img")
             const elementLabel = document.createElement("label")
 
-            // const elementInfoDiv = document.createElement("div")
+            const elementInfoDiv = document.createElement("div")
             const elementLink = document.createElement("a")
             // const elementDesc = document.createElement("p")
 
@@ -45,10 +45,10 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             elementDiv.appendChild(elementInput)
             elementDiv.appendChild(elementImg)
             elementDiv.appendChild(elementLabel)
-            // elementInfoDiv.appendChild(elementDesc)
-            // elementInfoDiv.appendChild(elementLink)
-            elementDiv.appendChild(elementLink)
-            // elementDiv.appendChild(elementInfoDiv)
+            elementInfoDiv.appendChild(elementDesc)
+            elementInfoDiv.appendChild(elementLink)
+            // elementDiv.appendChild(elementLink)
+            elementDiv.appendChild(elementInfoDiv)
 
             elementDiv.classList.add('entry')
             categoryWrapper.appendChild(elementDiv)
