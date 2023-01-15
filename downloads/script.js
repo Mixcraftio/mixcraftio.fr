@@ -45,7 +45,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
             elementDiv.appendChild(elementInput)
             elementDiv.appendChild(elementImg)
             elementDiv.appendChild(elementLabel)
-            elementInfoDiv.appendChild(elementDesc)
+            // elementInfoDiv.appendChild(elementDesc)
             elementInfoDiv.appendChild(elementLink)
             // elementDiv.appendChild(elementLink)
             elementDiv.appendChild(elementInfoDiv)
