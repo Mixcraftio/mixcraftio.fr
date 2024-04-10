@@ -46,7 +46,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
             cat.innerHTML += category
             cat.id = category
-            icon.className = "material-icons-outlined"
+            icon.className = "material-symbols-outlined"
             icon.slot = "icon"
             icon.innerHTML += map[category]
             cat.appendChild(icon)
