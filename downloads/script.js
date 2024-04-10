@@ -1,62 +1,86 @@
 fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
     const body = document.querySelector('body')
-    const wrapper = document.createElement("div")
-    wrapper.classList.add('wrapper')
+    const wrapper = document.createElement('div')
+    wrapper.id = "wrapper"
 
-    Object.entries(downloadList).forEach(([category, elements]) => {
-        const categorySection = document.createElement("section")
+    fetch('/components/download/card.html')
+    .then(res=>{
+        return res.text()
+    }).then(html=>{
+        var parser = new DOMParser()
+        var cardTemplate = parser.parseFromString(html, 'text/html')
 
-        const categoryInput = document.createElement("input")
-        const categoryLabel = document.createElement("label")
-        const categoryWrapper = document.createElement("div")
-        categoryWrapper.classList.add("elwrapper")
-        categoryInput.type = "checkbox"
-        categoryInput.id = category
-        categoryLabel.innerText = category
-        categoryLabel.htmlFor = category
-        categorySection.appendChild(categoryInput)
-        categorySection.appendChild(categoryLabel)
-        categorySection.appendChild(categoryWrapper)
 
-        Object.entries(elements).forEach(([element, data]) => {
-            const elementDiv = document.createElement("div")
-            const elementInput = document.createElement("input")
-            const elementImg = document.createElement("img")
-            const elementLabel = document.createElement("label")
+        const catWrapper = document.createElement('md-tabs')
+        const mapCat = {
+            0:"Emulators",
+            1:"Games",
+            2:"ISOs",
+            3:"Utilities"
+        }
 
-            const elementInfoDiv = document.createElement("div")
-            const elementLink = document.createElement("a")
-            // const elementDesc = document.createElement("p")
+        catWrapper.addEventListener('change', (event) => {
+            ActiveCat = document.querySelector('.'+mapCat[event.target.activeTabIndex])
+            ActiveCat.classList.toggle('active')
+            try {
+                previousActiveCat.classList.toggle('active')
+                previousActiveCat = ActiveCat
+            } catch (error) {
+                document.querySelector('.Emulators').classList.toggle('active')
+                previousActiveCat = ActiveCat
+            }
+        })
 
-            const name = data['name']
+        Object.entries(downloadList).forEach(([category, elements]) => {
+            const cat = document.createElement('md-primary-tab')
+            cat.setAttribute("inline-icon", "")
+            const icon = document.createElement('span')
 
-            elementInput.type = "checkbox"
-            elementInput.id = name
-            elementImg.src = data['img']
-            elementLabel.innerText = name
-            elementLabel.insertBefore(elementImg, elementLabel.firstChild)
-            elementLabel.htmlFor = name
+            const map = {
+                "Emulators":"videogame_asset",
+                "Games":"games",
+                "ISOs":"album",
+                "Utilities":"widgets"
+            }
 
-            elementLink.href = data['href']
-            elementLink.target = "_blank"
-            elementLink.innerText = "Download"
-            // elementDesc.innerText = data['desc']
+            cat.innerHTML += category
+            cat.id = category
+            icon.className = "material-icons-outlined"
+            icon.slot = "icon"
+            icon.innerHTML += map[category]
+            cat.appendChild(icon)
 
-            elementDiv.appendChild(elementInput)
-            // elementDiv.appendChild(elementImg)
-            elementDiv.appendChild(elementLabel)
-            // elementInfoDiv.appendChild(elementDesc)
-            elementInfoDiv.appendChild(elementLink)
-            // elementDiv.appendChild(elementLink)
-            elementDiv.appendChild(elementInfoDiv)
+            catWrapper.appendChild(cat)
 
-            elementDiv.classList.add('entry')
-            categoryWrapper.appendChild(elementDiv)
-        });
+            const listWrapper = document.createElement('md-list')
+            listWrapper.className = category
+            if (category=="Emulators") {
+                listWrapper.className += " active"
+            }
 
-        categorySection.classList.add('category')
-        wrapper.appendChild(categorySection)
-    });
+
+            Object.entries(elements).forEach(([element, data]) => {
+                const card = cardTemplate.cloneNode(true)
+
+                const name = data['name']
+                const item = card.querySelector('md-list-item')
+                const div = card.querySelector('div')
+                const img = card.querySelector('img')
+
+                item.href = data['href']
+                div.innerHTML += name
+                img.src = data['img']
+
+                listWrapper.appendChild(card.querySelector('md-list-item'))
+            })
+
+            wrapper.appendChild(listWrapper)
+        })
+        wrapper.prepend(catWrapper)
+
+
+    })
+
     body.appendChild(wrapper)
 })
