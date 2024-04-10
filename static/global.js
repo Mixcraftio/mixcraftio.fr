@@ -14,10 +14,3 @@ $.ajax({ type: "GET",
         replaceComponents()
     }
 })
-
-window.onload = function(){
-    $('head').append('<script src="https://cdn.jsdelivr.net/npm/less"></script>')
-    setTimeout(() => {
-        less.refreshStyles()
-      }, 1000);
-}
