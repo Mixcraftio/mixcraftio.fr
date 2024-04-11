@@ -1,19 +1,25 @@
 @media screen and (max-width: 480px), screen and (orientation: portrait){
-component#navbar div{
+html component#navbar div{
     width: 100% ; height: clamp(80px,88px,100px);
-    bottom: 0
+    bottom: 0;
+    z-index: 1
 }
-component#navbar div nav{
+}
+@media screen and (max-width: 480px), screen and (orientation: portrait){
+html component#navbar div nav{
     padding-top: clamp(5px, 15px, 20px);
     display: flex;
     justify-content: space-evenly
 }
-component#navbar div nav a{
+}
+@media screen and (max-width: 480px), screen and (orientation: portrait){
+html component#navbar div nav a{
     margin: 0;
     white-space: nowrap;
 }
-
-body > *:not(component#navbar){
+}
+@media screen and (max-width: 480px), screen and (orientation: portrait){
+html body > *:not(component#navbar){
     margin-left: 0;
 }
 }
