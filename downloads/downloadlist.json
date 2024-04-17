@@ -299,6 +299,18 @@
             "href":"https://dl.malwarewatch.org/windows/activation/",
             "img":"icons/utilities/Activation.png",
             "desc":"Few ways to activate windows with hack tools"
+        },
+        {
+            "name":"Microsoft Activation Scripts (MAS)",
+            "href":"https://github.com/massgravel/Microsoft-Activation-Scripts/releases/",
+            "img":"icons/utilities/Activation.png",
+            "desc":"Microsoft software activation scripts written by massgravel"
+        },
+        {
+            "name":"Microsoft genuine downloads",
+            "href":"https://massgrave.dev/genuine-installation-media",
+            "img":"icons/utilities/Activation.png",
+            "desc":"Microsoft genuine software (written and signed by microsoft) downloads provided by massgravel"
         }
     ]
 }

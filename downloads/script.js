@@ -65,11 +65,13 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
                 const name = data['name']
                 const item = card.querySelector('md-list-item')
-                const div = card.querySelector('div')
+                const divHead = card.querySelector('div[slot="headline"]')
+                const divDesc = card.querySelector('div[slot="supporting-text"]')
                 const img = card.querySelector('img')
 
                 item.href = data['href']
-                div.innerHTML += name
+                divHead.innerHTML += name
+                divDesc.innerHTML += data['desc']
                 img.src = data['img']
 
                 listWrapper.appendChild(card.querySelector('md-list-item'))
