@@ -1,6 +1,6 @@
 fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
-    const body = document.querySelector('body')
+    const main = document.querySelector('section#main')
     const wrapper = document.createElement('div')
     wrapper.id = "wrapper"
 
@@ -84,5 +84,5 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
     })
 
-    body.appendChild(wrapper)
+    main.appendChild(wrapper)
 })
