@@ -1,0 +1,9 @@
+# Robots.txt file for mixcraftio.mywire.org
+# Created on 17/04/2024
+# Author: Mixcraftio
+
+User-agent: *
+Disallow: /downloads/
+Disallow: /static/img/
+
+Sitemap: https://mixcraftio.mywire.org/sitemap.xml
