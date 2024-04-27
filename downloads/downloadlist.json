@@ -79,6 +79,12 @@
             "desc":"Gaming icons clash in the ultimate brawl you can play anytime, anywhere! Smash rivals off the stage as new characters Simon Belmont and King K. Rool join Inkling, Ridley, and every fighter in Super Smash Bros. history. Enjoy enhanced speed and combat at new stages based on the Castlevania series, Super Mario Odyssey, and more!\n\nHaving trouble choosing a stage? Then select the Stage Morph option to transform one stage into another while battling—a series first! Plus, new echo fighters Dark Samus, Richter Belmont, and Chrom join the battle. Whether you play locally or online, savor the faster combat, new attacks, and new defensive options, like a perfect shield. Jam out to 900 different music compositions and go 1-on-1 with a friend, hold a 4-player free-for-all, kick it up to 8-player battles and more! Feel free to bust out your GameCube controllers—legendary couch competitions await—or play together anytime, anywhere!"
         },
         {
+            "name":"SSBU 100% save",
+            "href":"emulators/SSBU_save.zip",
+            "img":"icons/emulators/SSBU_save.png",
+            "desc":"A 100% perfect save of Super Smash Bros Ultimate for use with Emulators or others."
+        },
+        {
             "name":"The Legend Of Zelda Tears Of The Kingdom",
             "href":"emulators/TheLegendOfZeldaTearsOfTheKingdom.xci",
             "img":"icons/emulators/TheLegendOfZeldaTearsOfTheKingdom.png",
