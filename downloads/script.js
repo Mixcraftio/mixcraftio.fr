@@ -69,7 +69,7 @@ fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
                 const divDesc = card.querySelector('div[slot="supporting-text"]')
                 const img = card.querySelector('img')
 
-                item.href = data['href']
+                item.href = "https://download.mixcraftio.mywire.org/"+data['href']
                 divHead.innerHTML += name
                 divDesc.innerHTML += data['desc']
                 img.src = data['img']
