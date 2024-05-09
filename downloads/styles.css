@@ -1,3 +1,7 @@
+md-tabs{
+    position: sticky;
+    top: 0; z-index: 1;
+}
 md-list{
     display: none
 }

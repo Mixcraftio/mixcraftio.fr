@@ -27,11 +27,11 @@ a{
     color: unset;
 }
 ::-webkit-scrollbar{
-	background-color: var(--md-sys-color-background);
+    background-color: var(--md-sys-color-background);
 }
 ::-webkit-scrollbar-thumb{
-	background-color: var(--md-sys-color-primary-container);
-	border-radius: 8px;
-	border: 4px solid transparent;
-	background-clip: content-box;
+    background-color: var(--md-sys-color-primary-container);
+    border-radius: 8px;
+    border: 4px solid transparent;
+    background-clip: content-box;
 }

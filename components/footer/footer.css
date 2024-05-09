@@ -1,10 +1,11 @@
-@media screen and (max-width: 480px), screen and (orientation: portrait){
-component#footer div footer{
+@media screen and (max-width: 480px), screen and (orientation: portrait){html{
+#footer footer{
     flex-direction: column;
 }
-}
+}}
 
-component#footer div{
+#footer footer{
+    display: flex;
     background-color: var(--md-sys-color-surface-variant);
     padding: 2%;
     margin-top: 5%;
@@ -14,21 +15,18 @@ component#footer div{
         padding: 5vh 5vw 4vh 5vw;
         font-size: 3em;
     }
-    footer{
-        display: flex;
-        section{
-            width: 100%;
-            justify-self: center;
-            h2{
-                padding: 1em;
-                padding-bottom: 0;
-            }
-            p{padding: 1em;}
-            ul{
-                padding: 2em;
-                text-decoration: underline;
-                list-style-type: none;
-            }
+    section{
+        width: 100%;
+        justify-self: center;
+        h2{
+            padding: 1em;
+            padding-bottom: 0;
+        }
+        p{padding: 1em;}
+        ul{
+            padding: 2em;
+            text-decoration: underline;
+            list-style-type: none;
         }
     }
 }
