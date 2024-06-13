@@ -1,3 +1,6 @@
+#main{
+    min-height: 70vh;
+}
 md-tabs{
     position: sticky;
     top: 0; z-index: 1;

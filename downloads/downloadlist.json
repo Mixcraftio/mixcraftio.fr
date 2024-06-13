@@ -289,24 +289,6 @@
 
     "Utilities":[
         {
-            "name":"HWIDGen",
-            "href":"utilities/HWIDGen.zip",
-            "img":"icons/utilities/HWIDGen.png",
-            "desc":"Windows activator hack tool"
-        },
-        {
-            "name":"OfficeActivation",
-            "href":"utilities/OfficeActivation.zip",
-            "img":"icons/utilities/OfficeActivation.png",
-            "desc":"Office activator hack tool"
-        },
-        {
-            "name":"Windows Activation",
-            "href":"https://dl.malwarewatch.org/windows/activation/",
-            "img":"icons/utilities/Activation.png",
-            "desc":"Few ways to activate windows with hack tools"
-        },
-        {
             "name":"Microsoft Activation Scripts (MAS)",
             "href":"https://github.com/massgravel/Microsoft-Activation-Scripts/releases/",
             "img":"icons/utilities/Activation.png",
@@ -315,8 +297,8 @@
         {
             "name":"Microsoft genuine downloads",
             "href":"https://massgrave.dev/genuine-installation-media",
-            "img":"icons/utilities/Activation.png",
-            "desc":"Microsoft genuine software (written and signed by microsoft) downloads provided by massgravel"
+            "img":"icons/utilities/MicrosoftDownloads.png",
+            "desc":"Microsoft genuine software (written and signed by microsoft from microsoft's sites) download links provided by massgravel"
         }
     ]
 }
