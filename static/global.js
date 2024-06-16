@@ -26,5 +26,14 @@ fetch("/static/imports.html")
 }).then(html=>{
     document.querySelector("head").innerHTML += html
 }).then(()=>{
-    replaceComponents()
+    if(document.readyState === 'ready' || document.readyState === 'complete') {
+        replaceComponents();
+      } else {
+        document.onreadystatechange = function () {
+          if (document.readyState == "complete") {
+            replaceComponents();
+          }
+        }
+      }
+    // replaceComponents()
 })
