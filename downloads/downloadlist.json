@@ -131,6 +131,12 @@
             "desc":"EuroTruckSimulator2.zip"
         },
         {
+            "name":"Final Fantasy VII Remake Intergrade",
+            "href":"games/FinalFantasyVIIRemakeIntergrade.zip",
+            "img":"icons/games/FinalFantasyVIIRemakeIntergrade.png",
+            "desc":"FinalFantasyVIIRemakeIntergrade.zip"
+        },
+        {
             "name":"Gang Beasts",
             "href":"games/GangBeasts.zip",
             "img":"icons/games/GangBeasts.png",
