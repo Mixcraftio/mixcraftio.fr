@@ -8,6 +8,9 @@ md-tabs{
 md-list{
     display: none
 }
+md-list-item div[slot="supporting-text"]{
+    max-height: 4lh;
+}
 .active{
     display:block
 }

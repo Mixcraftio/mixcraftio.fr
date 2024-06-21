@@ -1,16 +1,16 @@
 {
     "Emulators":[
         {
-            "name":"Yuzu",
-            "href":"https://github.com/yuzu-mirror/yuzu-downloads",
+            "name":"Yuzu Android Latest Build",
+            "href":"emulators/yuzu-20240304-dc529a89a.apk",
             "img":"icons/emulators/Yuzu.png",
-            "desc":"Yuzu is an experimental open-source emulator for the Nintendo Switch from the creators of Citra.\nIt is written in C++ with portability in mind, with builds actively maintained for Windows and Linux."
+            "desc":"Yuzu is an experimental open-source emulator for the Nintendo Switch from the creators of Citra.\nIt is written in C++ with portability in mind, but was recently taken down by Nintendo."
         },
         {
-            "name":"Yuzu EA",
-            "href":"https://github.com/pineappleEA/pineapple-src/releases",
+            "name":"Yuzu Windows Latest EA Build",
+            "href":"emulators/Windows-Yuzu-EA-4176.zip",
             "img":"icons/emulators/YuzuEA.png",
-            "desc":"Yuzu is an experimental open-source emulator for the Nintendo Switch from the creators of Citra.\nIt is written in C++ with portability in mind, with builds actively maintained for Windows and Linux."
+            "desc":"Yuzu is an experimental open-source emulator for the Nintendo Switch from the creators of Citra.\nIt is written in C++ with portability in mind, but was recently taken down by Nintendo."
         },
         {
             "name":"Animal Crossing New Horizons",
