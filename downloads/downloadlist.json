@@ -119,6 +119,12 @@
             "desc":"ContentWarning.zip"
         },
         {
+            "name":"Crisis Core Final Fantasy VII Reunion",
+            "href":"games/CrisisCoreFinalFantasyVIIReunion.zip",
+            "img":"icons/games/CrisisCoreFinalFantasyVIIReunion.png",
+            "desc":"CrisisCoreFinalFantasyVIIReunion.zip"
+        },
+        {
             "name":"Davigo",
             "href":"games/Davigo.zip",
             "img":"icons/games/Davigo.png",
@@ -305,6 +311,12 @@
             "href":"https://massgrave.dev/genuine-installation-media",
             "img":"icons/utilities/MicrosoftDownloads.png",
             "desc":"Microsoft genuine software (written and signed by microsoft from microsoft's sites) download links provided by massgravel"
+        },
+        {
+            "name":"Fritzing",
+            "href":"utilities/fritzing.zip",
+            "img":"icons/utilities/fritzing.png",
+            "desc":"Fritzing is an open-source hardware initiative that makes electronics accessible as a creative material for anyone. We offer a software tool, a community website and services in the spirit of Processing and Arduino, fostering a creative ecosystem that allows users to document their prototypes, share them with others, teach electronics in a classroom, and layout and manufacture professional PCBs."
         }
     ]
 }
