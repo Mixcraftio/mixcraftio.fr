@@ -2,25 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- Homepage -->
     <url>
-        <loc>https://mixcraftio.mywire.org/index.html</loc>
+        <loc>https://mixcraftio.mywire.org/</loc>
         <lastmod>2024-04-17</lastmod>
-        <changefreq>daily</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     
     <!-- Downloads page -->
     <url>
-        <loc>https://mixcraftio.mywire.org/downloads/index.html</loc>
+        <loc>https://mixcraftio.mywire.org/downloads/</loc>
         <lastmod>2024-04-17</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <!-- Guides page -->
     <url>
-        <loc>https://mixcraftio.mywire.org/guides/index.html</loc>
+        <loc>https://mixcraftio.mywire.org/guides/</loc>
         <lastmod>2024-04-17</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Privacy policy -->
+    <url>
+        <loc>https://mixcraftio.mywire.org/privacy-policy.html</loc>
+        <lastmod>2024-04-17</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 </urlset>
