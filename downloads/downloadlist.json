@@ -113,6 +113,18 @@
             "desc":"Astroneer.zip"
         },
         {
+            "name":"Class of 09",
+            "href":"games/ClassOf09.zip",
+            "img":"icons/games/ClassOf09.png",
+            "desc":"ClassOf09.zip"
+        },
+        {
+            "name":"Class of 09 - The Re-Up",
+            "href":"games/ClassOf09TheReUp.zip",
+            "img":"icons/games/ClassOf09TheReUp.png",
+            "desc":"ClassOf09TheReUp.zip"
+        },
+        {
             "name":"Content Warning",
             "href":"games/ContentWarning.zip",
             "img":"icons/games/ContentWarning.png",
@@ -237,6 +249,12 @@
             "href":"games/Teardown.zip",
             "img":"icons/games/Teardown.png",
             "desc":"Teardown.zip"
+        },
+        {
+            "name":"The coffin of Andy and Leyley",
+            "href":"games/TheCoffinOfAndyAndLeyley.zip",
+            "img":"icons/games/TheCoffinOfAndyAndLeyley.png",
+            "desc":"TheCoffinOfAndyAndLeyley.zip"
         },
         {
             "name":"The Long Drive",
