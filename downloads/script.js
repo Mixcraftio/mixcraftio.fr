@@ -8,7 +8,7 @@ const isValidUrl = urlString=> {
 return !!urlPattern.test(urlString);
 }
 
-fetch('/downloads/downloadlist.json').then(res=>res.json()).then(downloadList=>{
+fetch('https://download.mixcraftio.mywire.org/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
     const main = document.querySelector('section#main')
     const wrapper = document.createElement('div')
