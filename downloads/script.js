@@ -87,7 +87,7 @@ fetch('https://download.mixcraftio.mywire.org/downloadlist.json').then(res=>res.
                 }
                 divHead.innerHTML += name
                 divDesc.innerHTML += data['desc']
-                img.src = data['img']
+                img.src = "https://download.mixcraftio.mywire.org/"+data['img']
 
                 listWrapper.appendChild(card.querySelector('md-list-item'))
             })
