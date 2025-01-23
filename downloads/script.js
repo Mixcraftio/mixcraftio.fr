@@ -8,7 +8,7 @@ const isValidUrl = urlString=> {
 return !!urlPattern.test(urlString);
 }
 
-fetch('https://download.mixcraftio.mywire.org/downloadlist.json').then(res=>res.json()).then(downloadList=>{
+fetch('https://download.mixcraftio.mywire.org/public/downloadlist.json').then(res=>res.json()).then(downloadList=>{
 
     const main = document.querySelector('section#main')
     const wrapper = document.createElement('div')
@@ -87,7 +87,7 @@ fetch('https://download.mixcraftio.mywire.org/downloadlist.json').then(res=>res.
                 }
                 divHead.innerHTML += name
                 divDesc.innerHTML += data['desc']
-                img.src = "https://download.mixcraftio.mywire.org/"+data['img']
+                img.src = "https://download.mixcraftio.mywire.org/public/"+data['img']
 
                 listWrapper.appendChild(card.querySelector('md-list-item'))
             })
