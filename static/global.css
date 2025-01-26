@@ -1,10 +1,6 @@
 @font-face {
-    font-family: "Google Mono";
-    src: url("/static/fonts/Google_Mono.ttf");
-}
-@font-face {
-    font-family: "Google";
-    src: url("/static/fonts/Google.ttf");
+    font-family: "Roboto";
+    src: url("/static/fonts/Roboto.ttf");
 }
 @keyframes fadeIn{
     0%{opacity: 0;}
@@ -20,7 +16,7 @@ body{
 *{
     margin: 0;
     padding: 0;
-    font-family: "Google";
+    font-family: "Roboto";
 }
 a{
     text-decoration: none;
