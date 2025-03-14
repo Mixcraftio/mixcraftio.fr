@@ -24,7 +24,7 @@ async function fetchPublicDownloadList() {
 }
 
 async function fetchPrivateDownloadList() {
-    const res = await fetch('https://download.mixcraftio.mywire.org/public/privateDownloadList.json');
+    const res = await fetch('https://download.mixcraftio.mywire.org/privateDownloadList.json');
     return await res.json();
 }
 // ------------------------------------
