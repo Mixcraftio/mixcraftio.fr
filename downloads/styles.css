@@ -18,6 +18,11 @@ md-fab{
     position: fixed;
     bottom: 1em; right: 1em;
 }
+@media screen and (max-width: 480px), screen and (orientation: portrait){html{
+    md-fab{
+        bottom: calc(1em + clamp(80px,88px,100px));
+    }
+}}
 #credForm{
     padding-top: 3em;
     display: none;
