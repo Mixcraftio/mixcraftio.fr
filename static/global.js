@@ -1,39 +1,31 @@
+async function replaceComponents() {
+  const components = document.querySelectorAll('component');
 
-function replaceComponents() {
-    document.querySelectorAll('component').forEach(component => {
-        fetch("/components/"+ component.id + "/" + component.id+".html")
-        .then(res=>{
-            return res.text()
-        }).then(html=>{
-            component.innerHTML += html;
-        })
+  await Promise.all([...components].map(async (component) => {
+      const [html, script] = await Promise.all([
+          fetch(`/components/${component.id}/${component.id}.html`).then(res => res.text()),
+          fetch(`/components/${component.id}/${component.id}.js`).catch(() => null) // Handle missing scripts gracefully
+      ]);
 
-        js_script = document.createElement('script')
-        js_script.src = "/components/"+ component.id + "/" + component.id+".js"
-        component.appendChild(js_script)
-    })
+      component.insertAdjacentHTML('beforeend', html);
+
+      if (script) {
+          const js_script = document.createElement('script');
+          js_script.src = `/components/${component.id}/${component.id}.js`;
+          component.appendChild(js_script);
+      }
+  }));
 }
 
+document.addEventListener("DOMContentLoaded", async () => {
+  // Load external material library
+  import("https://esm.run/@material/web/all.js").catch(console.error);
 
-js_script = document.createElement('script')
-js_script.type = "module"
-js_script.src = "https://esm.run/@material/web/all.js"
-document.querySelector("head").appendChild(js_script)
+  // Fetch imports.html and insert it
+  await fetch("/static/imports.html")
+      .then(res => res.text())
+      .then(html => document.head.insertAdjacentHTML('beforeend', html));
 
-fetch("/static/imports.html")
-.then(res=>{
-    return res.text()
-}).then(html=>{
-    document.querySelector("head").innerHTML += html
-}).then(()=>{
-    if(document.readyState === 'ready' || document.readyState === 'complete') {
-        replaceComponents();
-      } else {
-        document.onreadystatechange = function () {
-          if (document.readyState == "complete") {
-            replaceComponents();
-          }
-        }
-      }
-    // replaceComponents()
-})
+  // Replace custom components dynamically
+  await replaceComponents();
+});

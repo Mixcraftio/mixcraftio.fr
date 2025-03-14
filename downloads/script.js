@@ -1,103 +1,149 @@
-const isValidUrl = urlString=> {
-    var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
-  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
-  '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
-  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
-  '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
-  '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
-return !!urlPattern.test(urlString);
+
+// --------- Helper functions ---------
+const isValidUrl = (urlString) => {
+    const urlPattern = new RegExp(
+        '^(https?:\\/\\/)?' + 
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + 
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + 
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + 
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + 
+        '(\\#[-a-z\\d_]*)?$','i'
+    ); 
+    return !!urlPattern.test(urlString);
+};
+
+async function fetchDownloadCardTemplate() {
+    const res = await fetch('/components/download/card.html');
+    const html = await res.text();
+    return new DOMParser().parseFromString(html, 'text/html');
 }
 
-fetch('https://download.mixcraftio.mywire.org/public/downloadlist.json').then(res=>res.json()).then(downloadList=>{
+async function fetchPublicDownloadList() {
+    const res = await fetch('https://download.mixcraftio.mywire.org/public/publicDownloadList.json');
+    return await res.json();
+}
 
-    const main = document.querySelector('section#main')
-    const wrapper = document.createElement('div')
-    wrapper.id = "wrapper"
-
-    fetch('/components/download/card.html')
-    .then(res=>{
-        return res.text()
-    }).then(html=>{
-        var parser = new DOMParser()
-        var cardTemplate = parser.parseFromString(html, 'text/html')
+async function fetchPrivateDownloadList() {
+    const res = await fetch('https://download.mixcraftio.mywire.org/public/privateDownloadList.json');
+    return await res.json();
+}
+// ------------------------------------
 
 
-        const catWrapper = document.createElement('md-tabs')
-        const mapCat = {
-            0:"Emulators",
-            1:"Games",
-            2:"ISOs",
-            3:"Utilities"
-        }
+async function createCategoryWrapper() {
+    const catWrapper = document.createElement('md-tabs');
 
-        catWrapper.addEventListener('change', (event) => {
-            ActiveCat = document.querySelector('.'+mapCat[event.target.activeTabIndex])
-            ActiveCat.classList.toggle('active')
-            try {
-                previousActiveCat.classList.toggle('active')
-                previousActiveCat = ActiveCat
-            } catch (error) {
-                document.querySelector('.Emulators').classList.toggle('active')
-                previousActiveCat = ActiveCat
-            }
-        })
+    // Add event listener for tab switching
+    catWrapper.addEventListener('change', (event) => {
+        const previousActiveTab = document.querySelector('md-list.active');
+        previousActiveTab.classList.remove('active');
+        const newActiveTab = document.querySelector(`.${catWrapper.activeTab.id}`);
+        newActiveTab.classList.add('active')
+    });
 
-        Object.entries(downloadList).forEach(([category, elements]) => {
-            const cat = document.createElement('md-primary-tab')
-            cat.setAttribute("inline-icon", "")
-            const icon = document.createElement('span')
+    return catWrapper;
+}
 
-            const map = {
-                "Emulators":"videogame_asset",
-                "Games":"games",
-                "ISOs":"album",
-                "Utilities":"widgets"
-            }
+async function populateCategoryTabs(downloadList, catWrapper) {
+    // Category icon mapping
+    const iconMap = {
+        "Emulators": "videogame_asset",
+        "Games": "games",
+        "ISOs": "album",
+        "Utilities": "widgets"
+    };
+    
+    // Create and append tabs dynamically for each category
+    Object.keys(downloadList).forEach(category => {
+        const cat = document.createElement('md-primary-tab');
+        cat.setAttribute("inline-icon", "");
+        cat.innerHTML = category;
+        cat.id = category;
 
-            cat.innerHTML += category
-            cat.id = category
-            icon.className = "material-symbols-outlined"
-            icon.slot = "icon"
-            icon.innerHTML += map[category]
-            cat.appendChild(icon)
+        const icon = document.createElement('span');
+        icon.className = "material-symbols-outlined";
+        icon.slot = "icon";
+        icon.innerHTML = iconMap[category] || "category"; // Default icon fallback
+        cat.appendChild(icon);
 
-            catWrapper.appendChild(cat)
+        catWrapper.appendChild(cat);
+    });
+}
 
-            const listWrapper = document.createElement('md-list')
-            listWrapper.className = category
-            if (category=="Emulators") {
-                listWrapper.className += " active"
-            }
+async function createDownloadCards(downloadList, cardDOM, wrapper) {
+    Object.entries(downloadList).forEach(([category, elements]) => {
+        // Create category list
+        const listWrapper = document.createElement('md-list');
+        listWrapper.classList.add(category);
+        if (category === "ISOs") listWrapper.classList.add("active");
 
+        // Populate cards within each category
+        Object.entries(elements).forEach(([element, data]) => {
+            const card = cardDOM.cloneNode(true);
+            const item = card.querySelector('md-list-item');
+            const divHead = card.querySelector('div[slot="headline"]');
+            const divDesc = card.querySelector('div[slot="supporting-text"]');
+            const img = card.querySelector('img');
+            const divVersion = card.querySelector('div[slot="trailing-supporting-text"]');
 
-            Object.entries(elements).forEach(([element, data]) => {
-                const card = cardTemplate.cloneNode(true)
+            // Set download link
+            item.href = isValidUrl(data.href) ? data.href : `https://download.mixcraftio.mywire.org/${data.href}`;
+            item.target = "_blank";
 
-                const name = data['name']
-                const item = card.querySelector('md-list-item')
-                const divHead = card.querySelector('div[slot="headline"]')
-                const divDesc = card.querySelector('div[slot="supporting-text"]')
-                const img = card.querySelector('img')
+            // Set card details
+            divHead.innerHTML = data.name;
+            divDesc.innerHTML = data.desc;
+            img.src = `https://download.mixcraftio.mywire.org/public/${data.img}`;
+            divVersion.innerHTML = data.version;
 
-                if (isValidUrl(data['href'])) {
-                    item.href = data['href']
-                    item.target = "_blank"
-                } else {
-                    item.href = "https://download.mixcraftio.mywire.org/"+data['href']
-                }
-                divHead.innerHTML += name
-                divDesc.innerHTML += data['desc']
-                img.src = "https://download.mixcraftio.mywire.org/public/"+data['img']
+            // Append card to category list
+            listWrapper.appendChild(item);
+        });
 
-                listWrapper.appendChild(card.querySelector('md-list-item'))
-            })
+        // Append the list of cards to the wrapper
+        wrapper.appendChild(listWrapper);
+    });
+}
 
-            wrapper.appendChild(listWrapper)
-        })
-        wrapper.prepend(catWrapper)
+async function loadDownloads() {
+    const main = document.querySelector('section#main');
 
+    const wrapper = document.createElement('div');
+    wrapper.id = "wrapper";
 
-    })
+    // Fetch download list
+    const publicDownloadList = await fetchPublicDownloadList();
 
-    main.appendChild(wrapper)
-})
+    // Load category tabs
+    const catWrapper = await createCategoryWrapper();
+    await populateCategoryTabs(publicDownloadList, catWrapper);
+    wrapper.prepend(catWrapper);
+
+    // Fetch the card template
+    const cardDOM = await fetchDownloadCardTemplate();
+
+    // Create and append download cards for each category
+    await createDownloadCards(publicDownloadList, cardDOM, wrapper);
+
+    main.appendChild(wrapper);
+}
+
+async function addPrivateDownloads() {
+    // Fetch download list
+    const privateDownloadList = await fetchPrivateDownloadList();
+
+    // Load category tabs
+    const catWrapper = document.querySelector('md-tabs');
+    await populateCategoryTabs(privateDownloadList, catWrapper);
+
+    // Fetch the card template
+    const cardDOM = await fetchDownloadCardTemplate();
+
+    // Create and append download cards for each category
+    await createDownloadCards(privateDownloadList, cardDOM, wrapper);
+}
+
+// Start download list loading
+document.addEventListener("DOMContentLoaded", () => {
+    loadDownloads();
+});
