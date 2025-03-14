@@ -24,8 +24,40 @@ async function fetchPublicDownloadList() {
 }
 
 async function fetchPrivateDownloadList() {
-    const res = await fetch('https://download.mixcraftio.mywire.org/public/privateDownloadList.json');
-    return await res.json();
+    const usernameField = document.querySelector('md-outlined-text-field[name="Username"]');
+    const passwordField = document.querySelector('md-outlined-text-field[name="Password"]');
+    try {
+        // Prompt user for credentials (username and password)
+        const username = usernameField.value;
+        const password = passwordField.value;
+
+        // Encode credentials into base64 format
+        const credentials = btoa(username + ":" + password);
+
+        // Set up the request headers with Basic Auth
+        const headers = new Headers();
+        headers.set('Authorization', 'Basic ' + credentials);
+
+        // Fetch with credentials (add 'credentials' field as needed)
+        const response = await fetch('https://download.mixcraftio.mywire.org/privateDownloadList.json', {
+            method: 'GET',
+            credentials: 'include',
+            headers: headers
+        });
+
+        hideForm()
+        return await response.json();
+    } catch (error) {
+        usernameField.setAttribute('error', '');
+        passwordField.setAttribute('error', '');
+    }
+}
+
+async function showForm() {
+    document.querySelector('#credForm').style.display = "flex";
+}
+async function hideForm() {
+    document.querySelector('#credForm').style.display = "none";
 }
 // ------------------------------------
 
@@ -55,18 +87,20 @@ async function populateCategoryTabs(downloadList, catWrapper) {
     
     // Create and append tabs dynamically for each category
     Object.keys(downloadList).forEach(category => {
-        const cat = document.createElement('md-primary-tab');
-        cat.setAttribute("inline-icon", "");
-        cat.innerHTML = category;
-        cat.id = category;
+        if (!catWrapper.querySelector(`md-primary-tab#${category}`)) {
+            const cat = document.createElement('md-primary-tab');
+            cat.setAttribute("inline-icon", "");
+            cat.innerHTML = category;
+            cat.id = category;
 
-        const icon = document.createElement('span');
-        icon.className = "material-symbols-outlined";
-        icon.slot = "icon";
-        icon.innerHTML = iconMap[category] || "category"; // Default icon fallback
-        cat.appendChild(icon);
+            const icon = document.createElement('span');
+            icon.className = "material-symbols-outlined";
+            icon.slot = "icon";
+            icon.innerHTML = iconMap[category] || "category"; // Default icon fallback
+            cat.appendChild(icon);
 
-        catWrapper.appendChild(cat);
+            catWrapper.appendChild(cat);
+        }
     });
 }
 
@@ -141,6 +175,10 @@ async function addPrivateDownloads() {
 
     // Create and append download cards for each category
     await createDownloadCards(privateDownloadList, cardDOM, wrapper);
+
+    // Delete FAB
+    const FAB = document.querySelector('md-fab');
+    FAB.remove()
 }
 
 // Start download list loading
