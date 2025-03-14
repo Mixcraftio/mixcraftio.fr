@@ -106,10 +106,16 @@ async function populateCategoryTabs(downloadList, catWrapper) {
 
 async function createDownloadCards(downloadList, cardDOM, wrapper) {
     Object.entries(downloadList).forEach(([category, elements]) => {
-        // Create category list
-        const listWrapper = document.createElement('md-list');
-        listWrapper.classList.add(category);
-        if (category === "ISOs") listWrapper.classList.add("active");
+        let listWrapper;
+        if (!wrapper.querySelector(`md-list.${category}`)) {
+            // Create category list
+            listWrapper = document.createElement('md-list');
+            listWrapper.classList.add(category);
+            if (category === "ISOs") listWrapper.classList.add("active");
+            wrapper.appendChild(listWrapper);
+        } else {
+            listWrapper = wrapper.querySelector(`md-list.${category}`);
+        }
 
         // Populate cards within each category
         Object.entries(elements).forEach(([element, data]) => {
@@ -133,9 +139,6 @@ async function createDownloadCards(downloadList, cardDOM, wrapper) {
             // Append card to category list
             listWrapper.appendChild(item);
         });
-
-        // Append the list of cards to the wrapper
-        wrapper.appendChild(listWrapper);
     });
 }
 
