@@ -18,6 +18,7 @@ section#main{
     card-set{
         /* grid */
         padding: 2rem;
+        padding-bottom: 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -47,7 +48,7 @@ section#main{
                 height: 100%;
             }
             h1{
-                padding: 7% 5% 2% 5%;
+                padding: 7% 20% 2% 5%;
                 font-size: 3rem;
                 font-weight: bold;
             }
@@ -75,5 +76,11 @@ section#main{
                 grid-column: span 2;
             }
         }
+    }
+}
+
+section#guides {
+    iframe {
+        width: 100%;
     }
 }

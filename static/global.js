@@ -1,4 +1,6 @@
 async function replaceComponents() {
+  if (window.self !== window.top) return;
+
   const components = document.querySelectorAll('component');
 
   await Promise.all([...components].map(async (component) => {
@@ -17,15 +19,19 @@ async function replaceComponents() {
   }));
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  // Load external material library
-  import("https://esm.run/@material/web/all.js").catch(console.error);
-
-  // Fetch imports.html and insert it
-  await fetch("/static/imports.html")
+async function addImports() {
+  fetch("/static/imports.html")
       .then(res => res.text())
       .then(html => document.head.insertAdjacentHTML('beforeend', html));
+}
 
-  // Replace custom components dynamically
+document.addEventListener("DOMContentLoaded", async () => {
+  // Load material components library
+  const material = await import("https://esm.run/@material/web/all.js").catch(console.error);
+
+  // Fetch imports.html and insert it
+  await addImports();
+
+  // Replace custom components dynamically if not an iframe
   await replaceComponents();
 });
