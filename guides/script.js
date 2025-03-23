@@ -10,8 +10,8 @@ async function loadMarkdown(file, article, target, marked) {
         const markdownContent = await marked.parse(markdownText);
         article.innerHTML = markdownContent;
 
-        const imgBase = isLocal ? "/guides/" : "https://download.mixcraftio.mywire.org/public/guides/";
-        adjustImagePaths(article, imgBase);
+        const markdownDir = markdownFile.substring(0, markdownFile.lastIndexOf("/"));
+        adjustImagePaths(article, baseURL+markdownDir);
     } catch (error) {
         console.error(error);
         article.innerHTML = "<p>Error loading markdown.</p>";
