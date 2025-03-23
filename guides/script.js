@@ -10,7 +10,7 @@ async function loadMarkdown(file, article, target, marked) {
         const markdownContent = await marked.parse(markdownText);
         article.innerHTML = markdownContent;
 
-        const markdownDir = markdownFile.substring(0, markdownFile.lastIndexOf("/"));
+        const markdownDir = file.substring(0, markdownFile.lastIndexOf("/"));
         adjustImagePaths(article, baseURL+markdownDir);
     } catch (error) {
         console.error(error);
