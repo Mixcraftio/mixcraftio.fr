@@ -1,6 +1,6 @@
 async function loadMarkdown(file, article, target, marked, renderMathInElement) {
     try {
-        const isLocal = target === "local" || file === "testing/GFM-spec-testing.md";
+        const isLocal = target === "local" || file === "welcome.md";
         const baseURL = isLocal ? "/guides/" : "https://download.mixcraftio.mywire.org/public/guides/";
 
         const response = await fetch(baseURL + file);
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const article = document.querySelector('article[markdown]'); // Select all articles with the 'data-markdown' attribute
     // Get the file query parameter from the URL
     const params = new URLSearchParams(window.location.search);
-    const mardownFile = params.get("file") || "testing/GFM-spec-testing.md";
+    const mardownFile = params.get("file") || "welcome.md";
     const target = params.get("target");
 
     loadMarkdown(mardownFile, article, target, marked, renderMathInElement);
