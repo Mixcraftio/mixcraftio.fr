@@ -82,3 +82,7 @@ This is ~~strikethrough~~ text.
 ## 11. HTML Blocks
 
 <p>This is a custom HTML block inside markdown.</p>
+
+## 12. LaTeX Test
+
+$$ P = m \times \vec{g} $$
