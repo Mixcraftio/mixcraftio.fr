@@ -7,7 +7,7 @@ async function loadMarkdown(file, article, target, marked) {
         if (!response.ok) throw new Error("Failed to load markdown file");
 
         const markdownText = await response.text();
-        const markdownContent = marked.parse(markdownText);
+        const markdownContent = await marked.parse(markdownText);
         article.innerHTML = markdownContent;
 
         const imgBase = isLocal ? "/guides/mds/" : "https://download.mixcraftio.mywire.org/public/guides/";
