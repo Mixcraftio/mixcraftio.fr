@@ -9,10 +9,22 @@ async function loadMarkdown(file, article, target, marked) {
         const markdownText = await response.text();
         const markdownContent = marked.parse(markdownText);
         article.innerHTML = markdownContent;
+
+        const imgBase = isLocal ? "/guides/mds/" : "https://download.mixcraftio.mywire.org/public/guides/";
+        adjustImagePaths(article, imgBase);
     } catch (error) {
         console.error(error);
         article.innerHTML = "<p>Error loading markdown.</p>";
     }
+}
+
+function adjustImagePaths(container, basePath) {
+    const images = container.querySelectorAll("img");
+    images.forEach(img => {
+        if (!/^(https?:)?\/\//i.test(img.src)) {
+            img.src = basePath + img.getAttribute("src");
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {

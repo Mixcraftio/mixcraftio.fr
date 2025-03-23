@@ -1,11 +1,26 @@
-# This is the guides section
+# 🚀 Welcome to the Guides Section!
 
-It is a work-in-progress, in the future, I intend to make it a blog-like section with various guides and fun stuff regarding tech, web dev or even programmation.
-It will store cheat sheets for languages and stuff like that. Let the future decide ! ✨
+This is a **work in progress**, but exciting things are coming! ✨  
 
-# Some guides
+In the future, this space will evolve into a **blog-style hub** filled with:  
+🛠️ **Tech tutorials**  
+💻 **Web development tricks**  
+🚀 **Programming cheat sheets**  
+🎲 **Random fun stuff**  
 
-## Markdown Testing
+Who knows what else? Let the future decide! 😉
 
-[Links are found here](/guides?file=links.md)
-[GFM-spec](/guides?target=local?file=testing/GFM-spec-testing.md)
+---
+
+## 🔗 Quick Links
+
+### 📌 Main Guide Index  
+[📚 Browse all links](/guides?file=links.md)
+
+### ✍️ Markdown Testing  
+[📝 GFM Spec Demo](/guides?file=testing/GFM-spec-testing.md&target=local)
+
+---
+
+### 🛠️ Got Ideas?  
+If there's something you'd love to see here, **let me know!** 🚀
