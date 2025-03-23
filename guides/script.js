@@ -10,7 +10,7 @@ async function loadMarkdown(file, article, target, marked) {
         const markdownContent = await marked.parse(markdownText);
         article.innerHTML = markdownContent;
 
-        const imgBase = isLocal ? "/guides/mds/" : "https://download.mixcraftio.mywire.org/public/guides/";
+        const imgBase = isLocal ? "/guides/" : "https://download.mixcraftio.mywire.org/public/guides/";
         adjustImagePaths(article, imgBase);
     } catch (error) {
         console.error(error);
@@ -21,7 +21,8 @@ async function loadMarkdown(file, article, target, marked) {
 function adjustImagePaths(container, basePath) {
     const images = container.querySelectorAll("img");
     images.forEach(img => {
-        if (!/^(https?:)?\/\//i.test(img.src)) {
+        const src = img.getAttribute("src");
+        if (src && !/^(https?:)?\/\//i.test(src)) {
             img.src = basePath + img.getAttribute("src");
         }
     });
