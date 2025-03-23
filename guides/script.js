@@ -11,7 +11,7 @@ async function loadMarkdown(file, article, target, marked) {
         article.innerHTML = markdownContent;
 
         const markdownDir = file.substring(0, file.lastIndexOf("/"));
-        adjustImagePaths(article, baseURL+markdownDir);
+        adjustImagePaths(article, baseURL+markdownDir+"/");
     } catch (error) {
         console.error(error);
         article.innerHTML = "<p>Error loading markdown.</p>";
