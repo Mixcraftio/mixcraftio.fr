@@ -7,4 +7,5 @@ It will store cheat sheets for languages and stuff like that. Let the future dec
 
 ## Markdown Testing
 
-[GFM-spec](/guides?file=testing/GFM-spec-testing.md)
+[Links are found here](/guides?file=links.md)
+[GFM-spec](/guides?target=local?file=testing/GFM-spec-testing.md)
