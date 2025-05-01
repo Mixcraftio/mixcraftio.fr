@@ -99,7 +99,7 @@ article[markdown] {
 
     /* Images */
     img {
-        width: clamp(25%,60%,100%);
+        width: max(70vw,75%,100%);
         height: auto;
         display: block;
         margin: 0.75rem auto 0.75rem auto;

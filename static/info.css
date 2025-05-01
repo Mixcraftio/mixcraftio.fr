@@ -1,6 +1,7 @@
 @media screen and (max-width: 480px), screen and (orientation: portrait){html{
-    #main > h1{
-        padding: 2rem;
+    #main{
+        padding: 1rem;
+        h1{margin: 2rem;}
     }
 }}
 
