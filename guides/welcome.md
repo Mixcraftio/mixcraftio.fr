@@ -17,7 +17,7 @@ Who knows what else? Let the future decide! 😉
 ### 📌 Main Guide Index  
 [📚 Browse all links](/guides?file=links.md)
 
-### 🎓 Ultimate guid CPGE
+### 🎓 Ultimate guide CPGE
 [💡 Guide CPGE](/guides?file=CPGE/CPGE.md)
 
 ---
