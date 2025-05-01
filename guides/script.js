@@ -19,8 +19,6 @@ async function loadMarkdown(file, article, target, marked, renderMathInElement) 
                     { left: "\\(", right: "\\)", display: false }
                 ]
             });
-
-            // Mark the article as rendered
             article.classList.add('katex-rendered');
         }
 
@@ -52,6 +50,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     link.href = 'https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css';  // The URL of the CSS file
     document.head.appendChild(link);
 
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    const url = new URL(window.location.href);
+    url.hash = "";
+    canonical.href = url.toString();
+    document.head.appendChild(canonical);
 
     // Add markdown 
     const article = document.querySelector('article[markdown]'); // Select all articles with the 'data-markdown' attribute

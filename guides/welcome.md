@@ -17,10 +17,14 @@ Who knows what else? Let the future decide! 😉
 ### 📌 Main Guide Index  
 [📚 Browse all links](/guides?file=links.md)
 
-### ✍️ Markdown Testing  
-[📝 GFM Spec Demo](/guides?file=testing/GFM-spec-testing.md&target=local)
+### 🎓 Ultimate guid CPGE
+[💡 Guide CPGE](/guides?file=CPGE/CPGE.md)
 
 ---
 
+### ✍️ Markdown Testing  
+[📝 GFM Spec Demo](/guides?file=testing/GFM-spec-testing.md&target=local)
+
 ### 🛠️ Got Ideas?  
 If there's something you'd love to see here, **let me know!** 🚀
+
