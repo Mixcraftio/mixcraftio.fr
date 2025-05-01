@@ -1,32 +1,61 @@
-async function loadMarkdown(file, article, target, marked, renderMathInElement) {
+async function loadContent(file, target, article, marked, renderMathInElement) {
     try {
         const isLocal = target === "local" || file === "welcome.md";
         const baseURL = isLocal ? "/guides/" : "https://download.mixcraftio.mywire.org/public/guides/";
-
+        
         const response = await fetch(baseURL + file);
-        if (!response.ok) throw new Error("Failed to load markdown file");
+        if (!response.ok) throw new Error("Failed to load file");
+        const contentType = response.headers.get("Content-Type") || "";
 
-        const markdownText = await response.text();
-        const markdownContent = marked.parse(markdownText);
-        article.innerHTML = markdownContent;
+        if (contentType.startsWith("text/") && contentType.includes("markdown")) {
+            const markdownText = await response.text();
+            const markdownContent = marked.parse(markdownText);
+            article.innerHTML = markdownContent;
 
-        if (!article.classList.contains('katex-rendered')) {
-            renderMathInElement(article, {
-                delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "\\[", right: "\\]", display: true },
-                    { left: "$", right: "$", display: false },
-                    { left: "\\(", right: "\\)", display: false }
-                ]
-            });
-            article.classList.add('katex-rendered');
+            if (!article.classList.contains('katex-rendered')) {
+                renderMathInElement(article, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "\\[", right: "\\]", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false }
+                    ]
+                });
+                article.classList.add('katex-rendered');
+            }
+
+            const markdownDir = file.substring(0, file.lastIndexOf("/"));
+            adjustImagePaths(article, baseURL+markdownDir+"/");
+        } else if (contentType.startsWith("text/")) {
+            const text = await response.text();
+            article.innerHTML = text;
+        } else if (contentType.startsWith("image/")) {
+            const img = document.createElement("img");
+            img.src = baseURL + file;
+            img.alt = file;
+            img.style.margin = "0";
+            img.style.width = "100%";
+            article.innerHTML = "";
+            article.appendChild(img);
+        } else if (contentType.startsWith("video/")) {
+            const video = document.createElement("video");
+            video.src = baseURL + file;
+            video.controls = true;
+            video.style.maxWidth = "100%";
+            article.innerHTML = "";
+            article.appendChild(video);
+        } else if (contentType.startsWith("audio/")) {
+            const audio = document.createElement("audio");
+            audio.src = baseURL + file;
+            audio.controls = true;
+            article.innerHTML = "";
+            article.appendChild(audio);
+        } else {
+            article.innerHTML = `<p>Unsupported file type: <code>${contentType}</code></p>`;
         }
-
-        const markdownDir = file.substring(0, file.lastIndexOf("/"));
-        adjustImagePaths(article, baseURL+markdownDir+"/");
     } catch (error) {
         console.error(error);
-        article.innerHTML = "<p>Error loading markdown.</p>";
+        article.innerHTML = "<p>Error loading file.</p>";
     }
 }
 
@@ -61,10 +90,55 @@ document.addEventListener("DOMContentLoaded", async () => {
     const article = document.querySelector('article[markdown]'); // Select all articles with the 'data-markdown' attribute
     // Get the file query parameter from the URL
     const params = new URLSearchParams(window.location.search);
-    const mardownFile = params.get("file") || "welcome.md";
+    const file = params.get("file") || "welcome.md";
     const target = params.get("target");
 
-    loadMarkdown(mardownFile, article, target, marked, renderMathInElement);
+    // Generate breadcrumb navigation
+    const breadcrumb = document.createElement('nav');
+    breadcrumb.className = 'breadcrumb-nav';
+    breadcrumb.appendChild(document.createTextNode(" 📂 guides / "));
+    
+    // Add welcome → /guides/
+    const welcomeLink = document.createElement('a');
+    welcomeLink.href = "/guides/";
+    welcomeLink.textContent = "welcome";
+    breadcrumb.appendChild(welcomeLink);
+    breadcrumb.appendChild(document.createTextNode(" / "));
+
+    // Add links → ?file=links.md
+    const linksLink = document.createElement('a');
+    linksLink.href = "/guides/?file=links.md";
+    linksLink.textContent = "links";
+    breadcrumb.appendChild(linksLink);
+    breadcrumb.appendChild(document.createTextNode(" / "));
+
+    // Build the rest
+    const parts = file.split('/');
+    let pathSoFar = "";
+    parts.forEach((part, index) => {
+        const isLast = index === parts.length - 1;
+        const span = document.createElement(isLast ? 'span' : 'a');
+
+        pathSoFar += part + "/";
+
+        if (!isLast) {
+            const Path = pathSoFar + part + ".md";
+            const base = "/guides/?file=" + Path.split('/').map(encodeURIComponent).join('/');
+            const showTarget = file === "welcome.md" ? "&target=" + target : "";
+            span.href = base + showTarget;
+        }
+
+        span.textContent = decodeURIComponent(part);
+        breadcrumb.appendChild(span);
+
+        if (!isLast) {
+            breadcrumb.appendChild(document.createTextNode(" / "));
+        }
+    });
+
+    article.parentNode.insertBefore(breadcrumb, article);
+
+    loadContent(file, target, article, marked, renderMathInElement);
 });
 
 

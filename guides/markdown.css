@@ -99,10 +99,10 @@ article[markdown] {
 
     /* Images */
     img {
-        max-width: 100%;
+        width: clamp(25%,60%,100%);
         height: auto;
         display: block;
-        margin-bottom: 0.75rem;
+        margin: 0.75rem auto 0.75rem auto;
     }
 
     /* Horizontal Line */

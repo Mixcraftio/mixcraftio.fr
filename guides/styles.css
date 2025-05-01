@@ -1,0 +1,8 @@
+.breadcrumb-nav {
+    margin: 1rem;
+    font-size: 1.25rem;
+}
+
+.breadcrumb-nav a {
+    color: var(--md-sys-color-primary);
+}

@@ -10,20 +10,7 @@ In the future, this space will evolve into a **blog-style hub** filled with:
 
 Who knows what else? Let the future decide! 😉
 
----
-
-## 🔗 Quick Links
-
-### 📌 Main Guide Index  
-[📚 Browse all links](/guides?file=links.md)
-
-### 🎓 Ultimate guide CPGE
-[💡 Guide CPGE](/guides?file=CPGE/CPGE.md)
-
----
-
-### ✍️ Markdown Testing  
-[📝 GFM Spec Demo](/guides?file=testing/GFM-spec-testing.md&target=local)
+### [📌 Guides links Index](/guides/?file=links.md)
 
 ### 🛠️ Got Ideas?  
 If there's something you'd love to see here, **let me know!** 🚀

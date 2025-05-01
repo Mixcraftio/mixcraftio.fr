@@ -9,7 +9,7 @@
     margin-bottom: 0;
     color: var(--md-sys-color-on-primary-container);
     & > h1{
-        padding: 3rem;
+        margin: 3rem;
         font-size: 3em;
         .red{
             color: var(--md-sys-color-error);
