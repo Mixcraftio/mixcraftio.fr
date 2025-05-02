@@ -96,20 +96,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Generate breadcrumb navigation
     const breadcrumb = document.createElement('nav');
     breadcrumb.className = 'breadcrumb-nav';
-    breadcrumb.appendChild(document.createTextNode(" 📂 guides / "));
     
-    // Add welcome → /guides/
+    // Add 📂 guides ?file=links.md
     const welcomeLink = document.createElement('a');
-    welcomeLink.href = "/guides/";
-    welcomeLink.textContent = "welcome";
+    welcomeLink.href = "/guides/?file=links.md";
+    welcomeLink.textContent = "📂 guides";
     breadcrumb.appendChild(welcomeLink);
-    breadcrumb.appendChild(document.createTextNode(" / "));
-
-    // Add links → ?file=links.md
-    const linksLink = document.createElement('a');
-    linksLink.href = "/guides/?file=links.md";
-    linksLink.textContent = "links";
-    breadcrumb.appendChild(linksLink);
     breadcrumb.appendChild(document.createTextNode(" / "));
 
     // Build the rest
