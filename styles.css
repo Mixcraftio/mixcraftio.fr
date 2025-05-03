@@ -129,10 +129,19 @@ section#aboutme, section#projects, section#experience{
         color: var(--md-sys-color-primary);
     }
 
-    .about-block img {
-        width: 100%;
+    .about-block > img {
+        width: 75%;
         margin: auto;
         border-radius: 100%;
+    }
+
+    .about-block .socials {
+        display: flex;
+        justify-content: space-evenly;
+        .material-symbols-outlined {
+            color: var(--md-sys-color-on-primary);
+            font-size: 24px;
+        }
     }
 
     /* Projects Section */
