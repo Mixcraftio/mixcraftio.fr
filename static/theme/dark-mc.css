@@ -1,4 +1,4 @@
-.dark-medium-contrast {
+:root {
   --md-sys-color-primary: rgb(205 221 255);
   --md-sys-color-surface-tint: rgb(171 199 255);
   --md-sys-color-on-primary: rgb(0 37 81);

@@ -17,7 +17,7 @@
         }
     }
     section{
-        background: var(--md-sys-color-primary-container);
+        background: var(--md-sys-color-surface-container);
         border-radius: 24px;
         margin-bottom: 2rem;
         & > *{

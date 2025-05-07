@@ -11,7 +11,7 @@
     padding: 2%;
     margin-top: 5%;
     margin-bottom: 0;
-    color: var(--md-sys-color-on-primary-container);
+    color: var(--md-sys-color-on-surface-variant);
     section{
         text-align: center;
         h2{

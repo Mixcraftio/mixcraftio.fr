@@ -22,12 +22,12 @@ body{
 #navbar nav{
     position: fixed; left: 0;
     width: clamp(80px,88px,100px); height: 100%;
-    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-surface);
+    background-color: var(--md-sys-color-surface-container-high);
     padding-top: 5vh;
     text-align: center;
     .material-symbols-outlined{
-        color: var(--md-sys-color-primary);
-        background-color: var(--md-sys-color-primary-container);
+        background-color: var(--md-sys-color-surface-container-highest);
         display: flex;
         position: relative;
         align-items: center;
@@ -41,7 +41,6 @@ body{
         transition: 0.1s;
     }
     .navbar-text{
-        color: var(--md-sys-color-primary);
         font-size: 0.8em;
         letter-spacing: 0.025em;
     }
@@ -56,17 +55,17 @@ body{
                 background-color: var(--md-sys-color-primary);
             }
             .navbar-text{
-                color: var(--md-sys-color-on-primary-container);
+                color: var(--md-sys-color-primary);
             }
         }
         &:hover{
             .material-symbols-outlined{
-                color: var(--md-sys-color-on-surface);
-                background-color: var(--md-sys-color-surface);
+                color: var(--md-sys-color-on-secondary);
+                background-color: var(--md-sys-color-secondary);
                 transform: scale(1.05);
             }
             .navbar-text{
-                color: var(--md-sys-color-on-surface);
+                color: var(--md-sys-color-secondary);
             }
         }
     }
