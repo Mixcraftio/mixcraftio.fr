@@ -1,12 +1,12 @@
 async function replaceComponents() {
-  if (window.self !== window.top) return;
+  if (window.self !== window.top && !window.location.pathname.startsWith('/errors/')) return;
 
   const components = document.querySelectorAll('component');
 
   await Promise.all([...components].map(async (component) => {
       const [html, script] = await Promise.all([
           fetch(`/components/${component.id}/${component.id}.html`).then(res => res.text()),
-          fetch(`/components/${component.id}/${component.id}.js`).catch(() => null) // Handle missing scripts gracefully
+          fetch(`/components/${component.id}/${component.id}.js`).catch(() => null)
       ]);
 
       component.insertAdjacentHTML('beforeend', html);

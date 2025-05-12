@@ -123,6 +123,7 @@ section#aboutme, section#projects, section#experience{
 
     .about-block > img {
         width: 75%;
+        aspect-ratio: 1;
         margin: auto;
         border-radius: 100%;
     }
