@@ -2,13 +2,17 @@
     font-family: "Roboto";
     src: url("/static/fonts/Roboto.ttf");
 }
+@keyframes fadeIn{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 html{
     background-color: var(--md-sys-color-surface);
     scrollbar-color: var(--md-sys-color-primary) var(--md-sys-color-surface);
 }
 body{
     visibility: visible;
-    animation: fadeIn 0.5s;
+    animation: fadeIn 0.1s;
 }
 *{
     margin: 0;
