@@ -3,7 +3,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://mixcraftio.mywire.org/</loc>
-        <lastmod>2025-03-22</lastmod>
+        <lastmod>2025-05-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -11,7 +11,7 @@
     <!-- Downloads page -->
     <url>
         <loc>https://mixcraftio.mywire.org/downloads/</loc>
-        <lastmod>2025-03-22</lastmod>
+        <lastmod>2025-05-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -19,7 +19,7 @@
     <!-- Guides page -->
     <url>
         <loc>https://mixcraftio.mywire.org/guides/</loc>
-        <lastmod>2025-03-22</lastmod>
+        <lastmod>2025-05-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -27,7 +27,7 @@
     <!-- Privacy policy -->
     <url>
         <loc>https://mixcraftio.mywire.org/privacy-policy.html</loc>
-        <lastmod>2025-03-22</lastmod>
+        <lastmod>2025-05-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
