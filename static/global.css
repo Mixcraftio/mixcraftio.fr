@@ -12,6 +12,7 @@ html{
 }
 body {
     animation: fadeIn 0.1s;
+    color: var(--md-sys-color-on-surface);
 }
 *{
     margin: 0;

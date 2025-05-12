@@ -22,7 +22,6 @@ body{
 #navbar nav{
     position: fixed; left: 0;
     width: clamp(80px,88px,100px); height: 100%;
-    color: var(--md-sys-color-on-surface);
     background-color: var(--md-sys-color-surface-container-high);
     padding-top: 5vh;
     text-align: center;

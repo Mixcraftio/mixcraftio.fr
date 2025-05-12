@@ -26,7 +26,6 @@ section#main{
 
         card{
             display: block;
-            color: var(--md-sys-color-on-surface);
             background: var(--md-sys-color-surface-container);
             &:hover{
                 background: var(--md-sys-color-surface-container-high);
@@ -86,7 +85,6 @@ section#main{
 section#aboutme, section#projects, section#experience{
     margin: 2rem;
     margin-bottom: 0;
-    color: var(--md-sys-color-on-surface);
     div.wrapper{
         background: var(--md-sys-color-surface-container);
         border-radius: 24px;
@@ -188,7 +186,6 @@ section#aboutme, section#projects, section#experience{
 
     .timeline-item time {
         font-size: 1rem;
-        color: var(--md-sys-color-on-surface);
         margin-left: auto;
         font-style: italic;
     }
