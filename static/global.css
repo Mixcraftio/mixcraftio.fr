@@ -10,8 +10,7 @@ html{
     background-color: var(--md-sys-color-surface);
     scrollbar-color: var(--md-sys-color-primary) var(--md-sys-color-surface);
 }
-body{
-    visibility: visible;
+body {
     animation: fadeIn 0.1s;
 }
 *{

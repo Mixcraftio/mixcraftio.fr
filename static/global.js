@@ -19,18 +19,9 @@ async function replaceComponents() {
   }));
 }
 
-async function addImports() {
-  fetch("/static/imports.html")
-      .then(res => res.text())
-      .then(html => document.head.insertAdjacentHTML('beforeend', html));
-}
-
 document.addEventListener("DOMContentLoaded", async () => {
   // Load material components library
   const material = await import("https://esm.run/@material/web/all.js").catch(console.error);
-
-  // Fetch imports.html and insert it
-  await addImports();
 
   // Replace custom components dynamically if not an iframe
   await replaceComponents();
