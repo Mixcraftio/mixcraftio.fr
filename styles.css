@@ -112,26 +112,34 @@ section#aboutme, section#projects, section#experience{
         flex-direction: column;
         gap: 1rem;
         transition: box-shadow 0.2s ease;
-    }
 
-    .about-block .material-symbols-outlined {
-        font-size: 2rem;
-        color: var(--md-sys-color-primary);
-    }
+        div {
+            display: flex;
 
-    .about-block > img {
-        width: 75%;
-        aspect-ratio: 1;
-        margin: auto;
-        border-radius: 100%;
-    }
+            .material-symbols-outlined {
+                font-size: 2rem;
+                color: var(--md-sys-color-primary);
+            }
 
-    .about-block .socials {
-        display: flex;
-        justify-content: space-evenly;
-        .material-symbols-outlined {
-            color: var(--md-sys-color-on-primary);
-            font-size: 24px;
+            h2 {
+                padding-left: 1rem;
+            }
+        }
+
+        img {
+            width: 75%;
+            aspect-ratio: 1;
+            margin: auto;
+            border-radius: 100%;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: space-evenly;
+            .material-symbols-outlined {
+                color: var(--md-sys-color-on-primary);
+                font-size: 24px;
+            }
         }
     }
 
@@ -144,18 +152,16 @@ section#aboutme, section#projects, section#experience{
     .project-card {
         border-radius: 1rem;
         padding: 2rem;
-        box-shadow: var(--md-sys-elevation-1);
-        transition: box-shadow 0.2s ease;
         display: flex;
         flex-direction: column;
         gap: 1rem;
-    }
 
-    .project-card .material-symbols-outlined {
-        font-size: 2rem;
-        color: var(--md-sys-color-primary);
+        .material-symbols-outlined {
+            font-size: 2rem;
+            color: var(--md-sys-color-primary);
+        }
     }
-
+    
     /* Experience Section */
     .timeline {
         display: flex;

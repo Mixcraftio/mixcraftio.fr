@@ -2,6 +2,11 @@
     font-family: "Roboto";
     src: url("/static/fonts/Roboto.ttf");
 }
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    src: url("/static/fonts/Roboto-Italic.ttf");
+}
 @keyframes fadeIn{
     0%{opacity: 0;}
     100%{opacity: 1;}
@@ -18,7 +23,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Roboto";
-    font-weight: 500;
 }
 a{
     text-decoration: none;
