@@ -1,7 +1,7 @@
-# Robots.txt file for mixcraftio.mywire.org
+# Robots.txt file for mixcraftio.fr
 # Created on 22/03/2025
 # Author: Mixcraftio
 
 User-agent: *
 
-Sitemap: https://mixcraftio.mywire.org/sitemap.xml
+Sitemap: https://mixcraftio.fr/sitemap.xml

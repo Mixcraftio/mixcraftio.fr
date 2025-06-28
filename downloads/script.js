@@ -19,7 +19,7 @@ async function fetchDownloadCardTemplate() {
 }
 
 async function fetchPublicDownloadList() {
-    const res = await fetch('https://download.mixcraftio.mywire.org/public/publicDownloadList.json');
+    const res = await fetch('https://download.mixcraftio.fr/public/publicDownloadList.json');
     return await res.json();
 }
 
@@ -39,7 +39,7 @@ async function fetchPrivateDownloadList() {
         headers.set('Authorization', 'Basic ' + credentials);
 
         // Fetch with credentials (add 'credentials' field as needed)
-        const response = await fetch('https://download.mixcraftio.mywire.org/privateDownloadList.json', {
+        const response = await fetch('https://download.mixcraftio.fr/privateDownloadList.json', {
             method: 'GET',
             credentials: 'include',
             headers: headers
@@ -127,13 +127,13 @@ async function createDownloadCards(downloadList, cardDOM, wrapper) {
             const divVersion = card.querySelector('div[slot="trailing-supporting-text"]');
 
             // Set download link
-            item.href = isValidUrl(data.href) ? data.href : `https://download.mixcraftio.mywire.org/${data.href}`;
+            item.href = isValidUrl(data.href) ? data.href : `https://download.mixcraftio.fr/${data.href}`;
             item.target = "_blank";
 
             // Set card details
             divHead.innerHTML = data.name;
             divDesc.innerHTML = data.desc;
-            img.src = `https://download.mixcraftio.mywire.org/public/${data.img}`;
+            img.src = `https://download.mixcraftio.fr/public/${data.img}`;
             divVersion.innerHTML = data.version;
 
             // Append card to category list
