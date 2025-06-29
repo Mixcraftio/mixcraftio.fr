@@ -126,7 +126,7 @@ section#aboutme, section#projects, section#experience{
             }
         }
 
-        img {
+        img.portrait {
             width: 75%;
             aspect-ratio: 1;
             margin: auto;

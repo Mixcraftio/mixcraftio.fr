@@ -14,6 +14,7 @@
 html{
     background-color: var(--md-sys-color-surface);
     scrollbar-color: var(--md-sys-color-primary) var(--md-sys-color-surface);
+    scroll-behavior: smooth;
 }
 body {
     animation: fadeIn 0.1s;
