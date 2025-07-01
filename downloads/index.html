@@ -23,21 +23,22 @@
 
     <section id="main"></section>
 
-    <md-fab onclick="showForm()" variant="primary" label="Show private">
+    <md-fab id="showFormButton" onclick="showForm()" variant="primary" label="Show private">
         <md-icon class="material-symbols-outlined" slot="icon">lock</md-icon>
     </md-fab>
 
+    <div id="credFormBackground" onclick="hideForm()"></div>
     <div id="credForm">
-        <md-icon-button onclick="hideForm()">
-            <md-icon class="material-symbols-outlined">close</md-icon>
-        </md-icon-button>
-        <md-outlined-text-field variant="primary" label="Username" type="text" name="Username" autocomplete="on"></md-outlined-text-field>
-        <md-outlined-text-field variant="primary" label="Password" type="password" name="Password" autocomplete="on"></md-outlined-text-field>
-        <md-filled-tonal-button onclick="addPrivateDownloads()" label="show">
-            Confirm
-            <md-icon class="material-symbols-outlined" slot="icon">check</md-icon>
-        </md-filled-tonal-button>
-    </div>
+            <md-icon-button onclick="hideForm()">
+                <md-icon class="material-symbols-outlined">close</md-icon>
+            </md-icon-button>
+            <md-outlined-text-field variant="primary" label="Username" type="text" name="Username" autocomplete="on"></md-outlined-text-field>
+            <md-outlined-text-field variant="primary" label="Password" type="password" name="Password" autocomplete="on"></md-outlined-text-field>
+            <md-filled-tonal-button onclick="addPrivateDownloads()" label="show">
+                Confirm
+                <md-icon class="material-symbols-outlined" slot="icon">check</md-icon>
+            </md-filled-tonal-button>
+        </div>
 
     <component id="footer"></component>
 </body>

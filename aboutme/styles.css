@@ -1,0 +1,123 @@
+@media screen and (width <= 480px) and (orientation: portrait){html{
+    section#main, section#projects, section#experience{
+        padding: 1rem;
+        h1{
+            font-size: 1.5rem;
+        }
+    }
+}}
+
+section#main, section#projects, section#experience{
+    padding: 2rem;
+    padding-bottom: 0;
+    div.wrapper{
+        background: var(--md-sys-color-surface-container);
+        border-radius: 24px;
+        & > *{
+            padding: 2rem;
+        }
+        h1{
+            padding-bottom: 0;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        a{text-decoration: underline;}
+    }
+
+    /* About Me Section */
+    .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .about-block {
+        border-radius: 1rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: box-shadow 0.2s ease;
+
+        div {
+            display: flex;
+
+            .material-symbols-outlined {
+                font-size: 2rem;
+                color: var(--md-sys-color-primary);
+            }
+
+            h2 {
+                padding-left: 1rem;
+            }
+        }
+
+        img.portrait {
+            width: 75%;
+            aspect-ratio: 1;
+            margin: auto;
+            border-radius: 100%;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: space-evenly;
+            .material-symbols-outlined {
+                color: var(--md-sys-color-on-primary);
+                font-size: 24px;
+            }
+        }
+    }
+
+    /* Projects Section */
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .project-card {
+        border-radius: 1rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .material-symbols-outlined {
+            font-size: 2rem;
+            color: var(--md-sys-color-primary);
+        }
+    }
+    
+    /* Experience Section */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .timeline-item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .timeline-item .material-symbols-outlined {
+        font-size: 2.5rem;
+        color: var(--md-sys-color-primary);
+    }
+
+    .timeline-item h3 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .timeline-item p {
+        margin: 0.5rem 0;
+    }
+
+    .timeline-item time {
+        font-size: 1rem;
+        margin-left: auto;
+        font-style: italic;
+    }
+}

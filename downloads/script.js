@@ -26,38 +26,40 @@ async function fetchPublicDownloadList() {
 async function fetchPrivateDownloadList() {
     const usernameField = document.querySelector('md-outlined-text-field[name="Username"]');
     const passwordField = document.querySelector('md-outlined-text-field[name="Password"]');
+    
+    // Retrieve credentials from form (username and password)
+    const username = usernameField.value;
+    const password = passwordField.value;
+
+    // Encode credentials into base64 format
+    const credentials = btoa(username + ":" + password);
+
+    // Set up the request headers with Basic Auth
+    const headers = new Headers();
+    headers.set('Authorization', 'Basic ' + credentials);
+
+    // Fetch with credentials
     try {
-        // Prompt user for credentials (username and password)
-        const username = usernameField.value;
-        const password = passwordField.value;
-
-        // Encode credentials into base64 format
-        const credentials = btoa(username + ":" + password);
-
-        // Set up the request headers with Basic Auth
-        const headers = new Headers();
-        headers.set('Authorization', 'Basic ' + credentials);
-
-        // Fetch with credentials (add 'credentials' field as needed)
         const response = await fetch('https://download.mixcraftio.fr/privateDownloadList.json', {
             method: 'GET',
             credentials: 'include',
             headers: headers
         });
-
-        hideForm()
         return await response.json();
     } catch (error) {
         usernameField.setAttribute('error', '');
         passwordField.setAttribute('error', '');
+        throw error
     }
 }
 
 async function showForm() {
     document.querySelector('#credForm').style.display = "flex";
+    document.querySelector('#credFormBackground').style.display = "block";
 }
 async function hideForm() {
     document.querySelector('#credForm').style.display = "none";
+    document.querySelector('#credFormBackground').style.display = "none";
 }
 // ------------------------------------
 
@@ -167,21 +169,24 @@ async function loadDownloads() {
 
 async function addPrivateDownloads() {
     // Fetch download list
-    const privateDownloadList = await fetchPrivateDownloadList();
+    try {
+        const privateDownloadList = await fetchPrivateDownloadList();
 
-    // Load category tabs
-    const catWrapper = document.querySelector('md-tabs');
-    await populateCategoryTabs(privateDownloadList, catWrapper);
+        // Load category tabs
+        const catWrapper = document.querySelector('md-tabs');
+        await populateCategoryTabs(privateDownloadList, catWrapper);
 
-    // Fetch the card template
-    const cardDOM = await fetchDownloadCardTemplate();
+        // Fetch the card template
+        const cardDOM = await fetchDownloadCardTemplate();
 
-    // Create and append download cards for each category
-    await createDownloadCards(privateDownloadList, cardDOM, wrapper);
+        // Create and append download cards for each category
+        await createDownloadCards(privateDownloadList, cardDOM, wrapper);
 
-    // Delete FAB
-    const FAB = document.querySelector('md-fab');
-    FAB.remove()
+        // Delete FAB and Form
+        document.querySelector('#showFormButton').remove()
+        document.querySelector('#credFormBackground').remove()
+        document.querySelector('#credForm').remove()
+    } catch (error) {}
 }
 
 // Start download list loading

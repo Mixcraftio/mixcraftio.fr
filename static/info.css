@@ -1,11 +1,11 @@
-@media screen and (max-width: 480px), screen and (orientation: portrait){html{
-    #main{
+@media screen and (width <= 480px) and (orientation: portrait){html{
+    section#main{
         padding: 1rem;
         h1{margin: 2rem;}
     }
 }}
 
-#main{
+section#main{
     padding: 2rem;
     margin-bottom: 0;
     & > h1{

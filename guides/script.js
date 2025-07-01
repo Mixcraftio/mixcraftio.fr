@@ -132,24 +132,3 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     loadContent(file, target, article, marked, renderMathInElement);
 });
-
-
-// Iframe
-if (window.self !== window.top) {
-    let previousHeight = null;
-
-    function sendHeight() {
-        const height = document.body.scrollHeight;
-        if (height !== previousHeight) {
-            window.parent.postMessage({ height }, "*");
-            previousHeight = height;
-        }
-    }
-
-    function setupObserver() {
-        const observer = new ResizeObserver(sendHeight);
-        observer.observe(document.documentElement);
-    }
-
-    document.addEventListener("DOMContentLoaded", setupObserver);
-}
