@@ -13,8 +13,8 @@ if ! docker info &> /dev/null; then
     exit 1
 fi
 
-IMAGE_NAME="mix-website"
-CONTAINER_NAME="mix-website"
+IMAGE_NAME="dim-website"
+CONTAINER_NAME="dim-website"
 HOST_PORT=3000
 CONTAINER_PORT=80
 

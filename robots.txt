@@ -1,7 +1,3 @@
-# Robots.txt file for mixcraftio.fr
-# Created on 22/03/2025
-# Author: Mixcraftio
-
 User-agent: *
 
 Sitemap: https://mixcraftio.fr/sitemap.xml
