@@ -13,8 +13,8 @@ if ! docker info &> /dev/null; then
     exit 1
 fi
 
-IMAGE_NAME="website"
-CONTAINER_NAME="website"
+IMAGE_NAME="mix-website"
+CONTAINER_NAME="mix-website"
 HOST_PORT=80
 CONTAINER_PORT=80
 
@@ -30,6 +30,7 @@ fi
 # Run the container
 docker run -d \
     --name $CONTAINER_NAME \
+    --restart always \
     -p $HOST_PORT:$CONTAINER_PORT \
     $IMAGE_NAME
 

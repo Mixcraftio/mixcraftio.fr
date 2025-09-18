@@ -8,3 +8,4 @@ This is the repository of the source code of my main site
 - cd into the project :  `cd mixcraftio.fr`
 - add rights to execute deploy script : `chmod u+x deploy.sh`
 - run deploy.sh : `./deploy.sh`
+- The container should now expose port 80
