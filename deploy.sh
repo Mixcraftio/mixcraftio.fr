@@ -15,7 +15,7 @@ fi
 
 IMAGE_NAME="mix-website"
 CONTAINER_NAME="mix-website"
-HOST_PORT=80
+HOST_PORT=3000
 CONTAINER_PORT=80
 
 # Build the image
