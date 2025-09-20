@@ -21,14 +21,19 @@ async function replaceComponents() {
 
 async function loadTheme() {
   const html = document.documentElement;
+  const favicon = document.getElementById("favicon");
+
   html.classList.remove("light", "dark");
 
   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     html.classList.add("dark");
+    favicon.href = "favicon-dark.ico";
   } else {
     html.classList.add("light");
+    favicon.href = "favicon-light.ico";
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Load theme
