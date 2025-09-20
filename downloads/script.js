@@ -19,7 +19,7 @@ async function fetchDownloadCardTemplate() {
 }
 
 async function fetchPublicDownloadList() {
-    const res = await fetch('https://download.mixcraftio.fr/public/publicDownloadList.json');
+    const res = await fetch('https://download.aztek-web.fr/public/publicDownloadList.json');
     return await res.json();
 }
 
@@ -40,7 +40,7 @@ async function fetchPrivateDownloadList() {
 
     // Fetch with credentials
     try {
-        const response = await fetch('https://download.mixcraftio.fr/privateDownloadList.json', {
+        const response = await fetch('https://download.aztek-web.fr/privateDownloadList.json', {
             method: 'GET',
             credentials: 'include',
             headers: headers
@@ -129,13 +129,13 @@ async function createDownloadCards(downloadList, cardDOM, wrapper) {
             const divVersion = card.querySelector('div[slot="trailing-supporting-text"]');
 
             // Set download link
-            item.href = isValidUrl(data.href) ? data.href : `https://download.mixcraftio.fr/${data.href}`;
+            item.href = isValidUrl(data.href) ? data.href : `https://download.aztek-web.fr/${data.href}`;
             item.target = "_blank";
 
             // Set card details
             divHead.innerHTML = data.name;
             divDesc.innerHTML = data.desc;
-            img.src = `https://download.mixcraftio.fr/public/${data.img}`;
+            img.src = `https://download.aztek-web.fr/public/${data.img}`;
             divVersion.innerHTML = data.version;
 
             // Append card to category list

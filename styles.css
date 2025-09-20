@@ -65,8 +65,10 @@ section#main{
             }
             &.main{
                 grid-row: span 2;
-                background: center / 90% no-repeat url("/static/img/MainCard.webp") var(--md-sys-color-surface-container);
                 h1{font-size: 5rem;}
+                @media (prefers-color-scheme: light) {background: center / 90% no-repeat url("/static/img/AzTeK-logoonly-light-noback.svg") var(--md-sys-color-surface-container);}
+                @media (prefers-color-scheme: dark) {background: center / 90% no-repeat url("/static/img/AzTeK-logoonly-dark-noback.svg") var(--md-sys-color-surface-container);}
+                text-shadow: 1px 1px 5px var(--md-sys-color-surface-container);
             }
             &.card-long{
                 grid-column: span 2;

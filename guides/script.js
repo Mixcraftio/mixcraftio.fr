@@ -1,7 +1,7 @@
 async function loadContent(file, target, article, marked, renderMathInElement) {
     try {
         const isLocal = target === "local" || file === "welcome.md";
-        const baseURL = isLocal ? "/guides/" : "https://download.mixcraftio.fr/public/guides/";
+        const baseURL = isLocal ? "/guides/" : "https://download.aztek-web.fr/public/guides/";
         
         const response = await fetch(baseURL + file);
         if (!response.ok) throw new Error("Failed to load file");

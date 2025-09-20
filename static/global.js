@@ -19,10 +19,24 @@ async function replaceComponents() {
   }));
 }
 
+async function loadTheme() {
+  const html = document.documentElement;
+  html.classList.remove("light", "dark");
+
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    html.classList.add("dark");
+  } else {
+    html.classList.add("light");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+  // Load theme
+  await loadTheme();
+  
   // Load material components library
   const material = await import("https://esm.run/@material/web/all.js").catch(console.error);
-
+  
   // Replace custom components dynamically if not an iframe
   await replaceComponents();
 });

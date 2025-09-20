@@ -1,12 +1,15 @@
 @media screen and (orientation: portrait){html{
 #footer footer{
     grid-template-columns: auto;
+    section div{
+        grid-template-columns: auto;
+    }
 }
 }}
 
 #footer footer{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 2fr 1fr 1fr;
     background-color: var(--md-sys-color-surface-variant);
     padding: 2%;
     margin-top: 5%;
@@ -31,6 +34,14 @@
             list-style-type: none;
             li{
                 padding: 0.2em;
+            }
+        }
+        div{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            img{
+                width: 50%;
             }
         }
     }
